@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using MultiTargetCameraMovement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -24,11 +25,13 @@ public class PlayerController : MonoBehaviour
    //References
     private CharacterController controller;
     private Animator anim;
+    private CameraMovement playerCam;
  
 
     private void Start(){ 
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        playerCam = GetComponentInChildren<CameraMovement>();
        
     }
     private void Update(){
@@ -43,9 +46,11 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2f;
         }
         float moveZ = Input.GetAxis("Vertical");
-        float moveX = Input.GetAxis("Horizontal");
+        float rotY = Input.GetAxis("Mouse X");
 
-        moveDirection = new Vector3(moveX,0,moveZ);
+        transform.Rotate(0,rotY,0);
+        
+        moveDirection = new Vector3(0,0,moveZ);
         moveDirection = transform.TransformDirection(moveDirection);
 
         if (isGrounded){
