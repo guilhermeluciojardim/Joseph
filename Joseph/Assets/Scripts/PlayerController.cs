@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runSpeed;
-    public bool isDead;
+    public bool isDead,isJumping;
     private int health, maxHealth;
     private Vector3 moveDirection;
     private Vector3 velocity;
@@ -24,10 +24,12 @@ public class PlayerController : MonoBehaviour
    //References
     private CharacterController controller;
     private Animator anim;
+ 
 
     private void Start(){ 
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+       
     }
     private void Update(){
         Move();
@@ -35,10 +37,10 @@ public class PlayerController : MonoBehaviour
 
     
     private void Move(){
-        isGrounded = Physics.CheckSphere(transform.position,groundCheckDistance, groundMask);
+        isGrounded = Physics.CheckSphere(transform.position, groundCheckDistance, groundMask);
 
         if ((isGrounded) && (velocity.y < 0)){
-            velocity.y = 0;
+            velocity.y = -2f;
         }
         float moveZ = Input.GetAxis("Vertical");
         float moveX = Input.GetAxis("Horizontal");
@@ -47,37 +49,53 @@ public class PlayerController : MonoBehaviour
         moveDirection = transform.TransformDirection(moveDirection);
 
         if (isGrounded){
+            anim.SetBool("isJumping",false);
+            isJumping=false;
+            anim.SetBool("isFalling",false);
+            anim.SetBool("isGrounded",true);
+            anim.SetBool("isMoving",true);
+            
             if ((moveDirection != Vector3.zero) && (!Input.GetKey(KeyCode.LeftShift))){
-                Walk();
+                WalkAnim();
             }
             else if ((moveDirection != Vector3.zero) && (Input.GetKey(KeyCode.LeftShift))){
-                Run();
+                RunAnim();
             }
             else if (moveDirection == Vector3.zero){
-                Idle();
+                IdleAnim();
             }
             moveDirection *= moveSpeed;
             if (Input.GetKeyDown(KeyCode.Space)){
-                Jump();
+                JumpAnim();
+                isJumping=true;
             }
+        }
+        else{
+            anim.SetBool("isGrounded",false);
+
+            if (isJumping && velocity.y < 0 || velocity.y < -2) {
+                anim.SetBool("isFalling", true);
+            }
+
         }     
         controller.Move(moveDirection * Time.deltaTime);
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
-    private void Idle(){
+    private void IdleAnim(){
         anim.SetFloat("Speed", 0,0.1f,Time.deltaTime);
     }
-    private void Walk(){
+    private void WalkAnim(){
         moveSpeed = walkSpeed;
         anim.SetFloat("Speed", 0.5f,0.1f,Time.deltaTime);
     }
-    private void Run(){
+    private void RunAnim(){
         moveSpeed = runSpeed;
         anim.SetFloat("Speed", 1f,0.1f,Time.deltaTime);
     }
-    private void Jump(){
+    private void JumpAnim(){
         velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
-        anim.SetTrigger("Jump");
+        anim.SetBool("isJumping",true);
+        isJumping=true;
     }
 }
