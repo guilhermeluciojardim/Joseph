@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         playerCam = GetComponentInChildren<CameraMovement>();
+        Cursor.lockState = CursorLockMode.Locked;
        
     }
     private void Update(){
@@ -46,7 +47,7 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2f;
         }
         float moveZ = Input.GetAxis("Vertical");
-        float rotY = Input.GetAxis("Mouse X");
+        float rotY = 1.5f * Input.GetAxis("Horizontal");
 
         transform.Rotate(0,rotY,0);
         
@@ -61,25 +62,35 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isMoving",true);
             
             if ((moveDirection != Vector3.zero) && (!Input.GetKey(KeyCode.LeftShift))){
-                WalkAnim();
+                if (moveZ<0){
+                    WalkBackAnim();
+                }
+                else{
+                    WalkAnim();
+                }
+                
             }
-            else if ((moveDirection != Vector3.zero) && (Input.GetKey(KeyCode.LeftShift))){
+            else if ((moveDirection != Vector3.zero) && (Input.GetKey(KeyCode.LeftShift)) && (moveZ > 0)){
                 RunAnim();
             }
             else if (moveDirection == Vector3.zero){
                 IdleAnim();
             }
-            moveDirection *= moveSpeed;
+            
             if (Input.GetKeyDown(KeyCode.Space)){
                 JumpAnim();
-                isJumping=true;
             }
+            if ((Input.GetKeyDown(KeyCode.LeftControl)) && (moveZ > 0)){
+                RollAnim();
+            }
+            moveDirection *= moveSpeed;
         }
         else{
             anim.SetBool("isGrounded",false);
 
-            if (isJumping && velocity.y < 0 || velocity.y < -2) {
+            if (isJumping && velocity.y <= 0 || velocity.y < -2) {
                 anim.SetBool("isFalling", true);
+                anim.SetBool("isJumping",false);
             }
 
         }     
@@ -94,6 +105,10 @@ public class PlayerController : MonoBehaviour
         moveSpeed = walkSpeed;
         anim.SetFloat("Speed", 0.5f,0.1f,Time.deltaTime);
     }
+    private void WalkBackAnim(){
+        moveSpeed = walkSpeed/4;
+        anim.SetFloat("Speed", 0.35f,0.1f,Time.deltaTime);
+    }
     private void RunAnim(){
         moveSpeed = runSpeed;
         anim.SetFloat("Speed", 1f,0.1f,Time.deltaTime);
@@ -102,5 +117,9 @@ public class PlayerController : MonoBehaviour
         velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         anim.SetBool("isJumping",true);
         isJumping=true;
+    }
+    private void RollAnim(){
+        moveSpeed = runSpeed;
+        anim.SetTrigger("Roll");
     }
 }
