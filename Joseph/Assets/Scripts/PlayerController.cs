@@ -48,6 +48,7 @@ public class PlayerController : MonoBehaviour
         }
         float moveZ = Input.GetAxis("Vertical");
         float rotY = 1.5f * Input.GetAxis("Horizontal");
+        float tawY = Input.GetAxis("Mouse Y");
 
         transform.Rotate(0,rotY,0);
         
