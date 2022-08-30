@@ -41,6 +41,7 @@ namespace MultiTargetCameraMovement
                 return;
             MoveAndRotate();
             Zoom();
+            SwitchOffset();
         }
 
         // moves to center between Players
@@ -77,6 +78,12 @@ namespace MultiTargetCameraMovement
             }
 
             return bounds.size.x;
+        }
+
+        void SwitchOffset(){
+            if (Input.GetKeyDown(KeyCode.Tab)){
+                offset.z = -offset.z;
+            }
         }
 
         // create bound around targets to get the center
