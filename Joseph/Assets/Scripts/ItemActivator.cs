@@ -6,9 +6,8 @@ public class ItemActivator : MonoBehaviour
 {
 [SerializeField] private GameObject activatedObject;
 
-  void OnCollisionEnter(Collision coll){
+  void OnTriggerEnter(Collider coll){
     if (coll.gameObject.CompareTag("Player")){
-            Debug.Log("Touch");
             KeyItemActivation item = activatedObject.GetComponent<KeyItemActivation>();
             item.isActivated = true;
     }

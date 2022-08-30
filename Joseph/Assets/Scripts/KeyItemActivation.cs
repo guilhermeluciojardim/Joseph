@@ -8,6 +8,7 @@ public class KeyItemActivation : MonoBehaviour
         public bool isActivated, isDoorClosed, isDoorClosing;
         float originalPositionY;
         [SerializeField] private CameraMovement playerCam;
+        [SerializeField] private LevelManager levelManager;
         
         void Start(){
             originalPositionY = transform.position.y;
@@ -25,6 +26,7 @@ public class KeyItemActivation : MonoBehaviour
             if (!isDoorClosing){
                 playerCam.AddTarget(transform);
                 isDoorClosing=true;
+                levelManager.ShowText("You found an altar of the lord \n \n press ENTER for pray");
             }
             else if (!isDoorClosed){
                 if (transform.position.y > originalPositionY-3){
@@ -34,6 +36,7 @@ public class KeyItemActivation : MonoBehaviour
                     isDoorClosed=true;
                     playerCam.RemoveTarget(transform);
                     isActivated=false;
+                    levelManager.ShowText("The Lord seems to be helping me out!");
                 }
             }
             
