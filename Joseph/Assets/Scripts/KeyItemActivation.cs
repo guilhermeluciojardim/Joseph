@@ -36,7 +36,6 @@ public class KeyItemActivation : MonoBehaviour
                     isDoorClosed=true;
                     playerCam.RemoveTarget(transform);
                     isActivated=false;
-                    levelManager.ShowText("The Lord seems to be helping me out!");
                 }
             }
             

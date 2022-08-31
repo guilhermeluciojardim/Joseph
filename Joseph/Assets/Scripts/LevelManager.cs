@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     private bool isMessageShowed;
 
     void Start(){
-        panelString = "You feel in the cistern and must find your way out \n Use the Arrow Keys to move \n PRESS ENTER TO CONTINUE...";
+        panelString = "You feel in the cistern and must find your way out \n Use the Arrow Keys to move \n \n PRESS ENTER TO CONTINUE...";
     }
     void Update(){
         if (!isMessageShowed){

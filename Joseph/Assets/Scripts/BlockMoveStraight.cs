@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BlockMoveStraight : MonoBehaviour
 {
-    private int dir;
     [SerializeField] private float speed;
     [SerializeField] private Transform BoundaryZ1, BoundaryZ2;
 
@@ -32,16 +31,15 @@ public class BlockMoveStraight : MonoBehaviour
         
        
     }
-    void OnCollisionStay (Collision coll) {
-        foreach (ContactPoint contact in coll.contacts)
-        {
-            Debug.DrawRay(contact.point, contact.normal * 10, Color.white);
-        }
+    void OnCollisionEnter (Collision coll) {
         if (coll.gameObject.CompareTag("Player")){
-            Debug.Log("Touch");
-            Vector3 pos = transform.position;
-            Vector3 dir = (pos - target).normalized;
-            coll.transform.Translate(dir);
+            coll.transform.SetParent(transform);
         } 
+    }
+
+    void OnCollisionExit (Collision coll){
+        if (coll.gameObject.CompareTag("Player")){
+            coll.transform.SetParent(null);
+        }
     }
 }
