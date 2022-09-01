@@ -12,7 +12,6 @@ public class WindPushPlayer : MonoBehaviour
     void OnCollisionStay(Collision coll)
     {
         if (coll.gameObject.CompareTag("Player")){
-            Debug.Log("Touched");
             velocity.z = Mathf.Sqrt(pushForce * -2);
             controller.Move(velocity * Time.deltaTime); 
         }

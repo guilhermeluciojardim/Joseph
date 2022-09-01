@@ -4023,6 +4023,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1629508174}
     m_Modifications:
+    - target: {fileID: 455357766, guid: 70b87e68ac8cccb4ca8e8c617b21ff9c, type: 3}
+      propertyPath: lid
+      value: 
+      objectReference: {fileID: 1331837608}
     - target: {fileID: 1787230244112592, guid: 70b87e68ac8cccb4ca8e8c617b21ff9c, type: 3}
       propertyPath: m_Name
       value: ChestBD
@@ -4079,25 +4083,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 455357760}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &455357762 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1787230244112592, guid: 70b87e68ac8cccb4ca8e8c617b21ff9c,
-    type: 3}
-  m_PrefabInstance: {fileID: 455357760}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &455357763
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 455357762}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1853725, y: 0.7532761, z: 0.9444885}
-  m_Center: {x: 0.000000059604645, y: -0.057305634, z: 0.011305526}
 --- !u!1 &458437940
 GameObject:
   m_ObjectHideFlags: 0
@@ -8788,15 +8773,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4883985664657356, guid: f933c455b886ad644b60dc415ab31bb3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.94
+      value: -7.44
       objectReference: {fileID: 0}
     - target: {fileID: 4883985664657356, guid: f933c455b886ad644b60dc415ab31bb3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.82
+      value: 4.364
       objectReference: {fileID: 0}
     - target: {fileID: 4883985664657356, guid: f933c455b886ad644b60dc415ab31bb3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.02
+      value: -23.17
       objectReference: {fileID: 0}
     - target: {fileID: 4883985664657356, guid: f933c455b886ad644b60dc415ab31bb3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12983,15 +12968,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4817279659058732, guid: 4e9a09516d6185f4eb1ba53020dedffa, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4817279659058732, guid: 4e9a09516d6185f4eb1ba53020dedffa, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4817279659058732, guid: 4e9a09516d6185f4eb1ba53020dedffa, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4817279659058732, guid: 4e9a09516d6185f4eb1ba53020dedffa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -16681,6 +16666,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1289020542}
     m_Modifications:
+    - target: {fileID: 455357766, guid: 70b87e68ac8cccb4ca8e8c617b21ff9c, type: 3}
+      propertyPath: lid
+      value: 
+      objectReference: {fileID: 1684044986}
     - target: {fileID: 1787230244112592, guid: 70b87e68ac8cccb4ca8e8c617b21ff9c, type: 3}
       propertyPath: m_Name
       value: ChestBD (1)

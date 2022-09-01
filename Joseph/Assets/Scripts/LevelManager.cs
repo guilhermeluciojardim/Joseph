@@ -9,10 +9,10 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI panelText;
     public string panelString;
 
-    private bool isMessageShowed;
+    private bool isMessageShowed = true;
 
     void Start(){
-        panelString = "You feel in the cistern and must find your way out \n Use the Arrow Keys to move \n \n PRESS ENTER TO CONTINUE...";
+        
     }
     void Update(){
         if (!isMessageShowed){
