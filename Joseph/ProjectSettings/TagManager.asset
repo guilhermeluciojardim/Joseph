@@ -7,6 +7,7 @@ TagManager:
   - Shootable
   - Door
   - Spike
+  - SecretChest
   layers:
   - Default
   - TransparentFX

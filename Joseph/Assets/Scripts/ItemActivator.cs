@@ -8,8 +8,9 @@ public class ItemActivator : MonoBehaviour
 
   void OnTriggerEnter(Collider coll){
     if (coll.gameObject.CompareTag("Player")){
-            KeyItemActivation item = activatedObject.GetComponent<KeyItemActivation>();
-            item.isActivated = true;
+      activatedObject.gameObject.SetActive(true);
+      KeyItemActivation item = activatedObject.GetComponent<KeyItemActivation>();   
+      item.isActivated = true;
     }
   }
 }
