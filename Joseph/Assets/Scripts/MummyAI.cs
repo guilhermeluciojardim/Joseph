@@ -8,6 +8,8 @@ public class MummyAI : MonoBehaviour
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
 
+    [SerializeField] private GameObject shotPrefab;
+    [SerializeField] private Transform shotOrigin;
 
     //Patrolling
     public Vector3 walkPoint;
@@ -74,6 +76,7 @@ public class MummyAI : MonoBehaviour
     }
     private void ChasePlayer(){
         agent.SetDestination(player.position);
+        Walk();
     }
     private void AttackPlayer(){
         //Make sure enemy doesn't move
@@ -83,8 +86,7 @@ public class MummyAI : MonoBehaviour
         transform.LookAt(player);
 
         if (!alreadyAttacked){
-            //Attack code
-
+            Attack();
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
@@ -103,10 +105,16 @@ public class MummyAI : MonoBehaviour
         }
     }
     private void Idle(){
-        anim.SetFloat("Speed", 0,0.1f,Time.deltaTime);
+        anim.SetFloat("Speed", 0 ,0.1f,Time.deltaTime);
     }
+
     private void Walk(){
         
-        anim.SetFloat("Speed", 0.51f,0.1f,Time.deltaTime);
+        anim.SetFloat("Speed", 0.51f ,0.1f,Time.deltaTime);
+    }
+
+    private void Attack(){
+        GameObject obj = Instantiate(shotPrefab,shotOrigin.position,shotOrigin.rotation) as GameObject;
+        GameObject.Destroy(obj,5);
     }
 }

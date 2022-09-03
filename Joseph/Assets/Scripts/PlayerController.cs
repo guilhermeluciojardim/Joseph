@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2f;
         }
         float moveZ = Input.GetAxis("Vertical");
-        float rotY = 1.5f * Input.GetAxis("Horizontal");
+        float rotY = 3f * Input.GetAxis("Horizontal");
 
         transform.Rotate(0,rotY,0);
         
