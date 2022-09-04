@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
     [SerializeField] private TextMeshProUGUI panelText;
+    [SerializeField] private GameObject player;
     public string panelString;
 
     private bool isMessageShowed = true;

@@ -29,7 +29,6 @@ public class KeyItemActivation : MonoBehaviour
         void OpenDoor(){
             if (!isDoorClosing){
                 isDoorClosing=true;
-                levelManager.ShowText("You found an altar of the Lord \n \n press ENTER for pray");
                 playerCam.AddTarget(transform);
             }
             else if (!isDoorClosed){
@@ -47,7 +46,6 @@ public class KeyItemActivation : MonoBehaviour
         void RevealChest(){
             if (!isRevealing){
                 isRevealing=true;
-                levelManager.ShowText("You found an altar of the Lord \n \n press ENTER for pray");
                 playerCam.AddTarget(transform);
                 gameObject.SetActive(true);
                 GameObject obj = GameObject.Instantiate(revealEffect, transform.position,transform.rotation) as GameObject;

@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class OpenChest : MonoBehaviour
 {
-    public bool Activate, isOpen, isClosed, isMoving;
+    public bool Activate, isOpen, isClosed, isMoving, isEmpty;
     private float angle;
 
     [SerializeField] private float speed;
     [SerializeField] private GameObject lid;
+    [SerializeField] private GameObject content;
 
     void Start(){
         isClosed=true;
         isOpen=false;
         isMoving=false;
         Activate=false;
+        if (content == null){
+            isEmpty=true;    
+        }
+        else{
+            isEmpty=false;
+        }
     }
 
     void Update()
@@ -38,6 +45,15 @@ public class OpenChest : MonoBehaviour
                 Activate=false;
                 isMoving=false;
                 angle=0;
+                if (!isEmpty){
+                    GameObject cont = Instantiate(content,transform.position + new Vector3(0,1,0),content.transform.rotation) as GameObject;
+                    GameObject.Destroy(cont,3f);
+                    isEmpty=true;
+                    if (cont.gameObject.CompareTag("Weapon")){
+                        GameObject[] player =  GameObject.FindGameObjectsWithTag("Player");
+                        player[0].gameObject.GetComponent<PlayerController>().GivePlayerHisWeapon();
+                    }
+                }
             }
     }
 
@@ -51,14 +67,15 @@ public class OpenChest : MonoBehaviour
                 isMoving=false;
                 angle=0;
             }
-                
-            
     }
 
     void OnCollisionStay(Collision coll){
-        if ((coll.gameObject.CompareTag("Player")) && (Input.GetKeyDown(KeyCode.Return)) && (!isMoving)){
+        if ((coll.gameObject.CompareTag("Player")) && (Input.GetKeyDown(KeyCode.E)) && (!isMoving)){
             Activate=true;
             isMoving=true;
         }
     }
+
+
+
 }

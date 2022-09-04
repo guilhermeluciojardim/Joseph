@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float gravity;
     [SerializeField] private float jumpHeight;
 
+    [SerializeField] private GameObject weapon;
+
    //References
     private CharacterController controller;
     private Animator anim;
@@ -47,7 +49,7 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2f;
         }
         float moveZ = Input.GetAxis("Vertical");
-        float rotY = 3f * Input.GetAxis("Horizontal");
+        float rotY = 3f * Input.GetAxis("Mouse X");
 
         transform.Rotate(0,rotY,0);
         
@@ -121,5 +123,9 @@ public class PlayerController : MonoBehaviour
     private void RollAnim(){
         moveSpeed = runSpeed;
         anim.SetTrigger("Roll");
+    }
+
+    public void GivePlayerHisWeapon(){
+        weapon.gameObject.SetActive(true);
     }
 }
