@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight;
 
     [SerializeField] private GameObject weapon;
+    [SerializeField] private RuntimeAnimatorController newController;
 
    //References
     private CharacterController controller;
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update(){
         Move();
+        Attack();
     }
 
     
@@ -100,6 +102,12 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
+
+    void Attack(){
+        if (weapon.activeSelf == true){
+            anim.SetBool("Attack1",true);
+        }
+    }
     private void IdleAnim(){
         anim.SetFloat("Speed", 0,0.1f,Time.deltaTime);
     }
@@ -127,5 +135,6 @@ public class PlayerController : MonoBehaviour
 
     public void GivePlayerHisWeapon(){
         weapon.gameObject.SetActive(true);
+        anim.runtimeAnimatorController = newController;
     }
 }

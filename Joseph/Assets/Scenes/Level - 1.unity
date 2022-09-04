@@ -38504,6 +38504,7 @@ MonoBehaviour:
   gravity: -9.81
   jumpHeight: 1
   weapon: {fileID: 1497137726}
+  newController: {fileID: 9100000, guid: e875d946e3d55bf42b45853455bbf6b1, type: 2}
 --- !u!143 &1176555195
 CharacterController:
   m_ObjectHideFlags: 0
