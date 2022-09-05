@@ -29,8 +29,6 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private Animator anim;
     private CameraMovement playerCam;
-
-    public bool isAttack1Finished, isAttack2Finished, isAttack3Finished;
  
 
     private void Start(){ 
@@ -109,16 +107,18 @@ public class PlayerController : MonoBehaviour
         if (weapon.activeSelf == true){
             if (Input.GetKeyDown(KeyCode.Mouse0)){
                     anim.SetBool("Attack1",true);
+                    StartCoroutine(WaitForNextAttack());
             }
             else if (Input.GetKeyDown(KeyCode.Mouse1)){
                     anim.SetBool("Attack2",true);
+                    StartCoroutine(WaitForNextAttack());
             }
-            StartCoroutine(WaitForNextAttack());
+            
         }
     }
 
     IEnumerator WaitForNextAttack(){
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.5f);
         anim.SetBool("Attack1",false);
         anim.SetBool("Attack2",false);
     }
