@@ -24,11 +24,13 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject weapon;
     [SerializeField] private RuntimeAnimatorController newController;
+    private MeshCollider weaponMesh;
 
    //References
     private CharacterController controller;
     private Animator anim;
     private CameraMovement playerCam;
+
  
 
     private void Start(){ 
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         playerCam = GetComponentInChildren<CameraMovement>();
         Cursor.lockState = CursorLockMode.Locked;
-       
+        weaponMesh = weapon.GetComponent<MeshCollider>();
     }
     private void Update(){
         Move();
@@ -106,22 +108,26 @@ public class PlayerController : MonoBehaviour
     void Attack(){
         if (weapon.activeSelf == true){
             if (Input.GetKeyDown(KeyCode.Mouse0)){
+                    weaponMesh.enabled=true;
                     anim.SetBool("Attack1",true);
                     StartCoroutine(WaitForNextAttack());
             }
             else if (Input.GetKeyDown(KeyCode.Mouse1)){
+                    weaponMesh.enabled=true;
                     anim.SetBool("Attack2",true);
                     StartCoroutine(WaitForNextAttack());
             }
             
         }
     }
-
     IEnumerator WaitForNextAttack(){
         yield return new WaitForSeconds(0.5f);
         anim.SetBool("Attack1",false);
         anim.SetBool("Attack2",false);
+        weaponMesh.enabled=false;
     }
+
+
     private void IdleAnim(){
         anim.SetFloat("Speed", 0,0.1f,Time.deltaTime);
     }

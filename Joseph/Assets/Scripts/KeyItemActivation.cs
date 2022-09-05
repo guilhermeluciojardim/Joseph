@@ -8,7 +8,6 @@ public class KeyItemActivation : MonoBehaviour
         public bool isActivated, isDoorClosed, isDoorClosing, isRevealing;
         float originalPositionY;
         [SerializeField] private CameraMovement playerCam;
-        [SerializeField] private LevelManager levelManager;
         [SerializeField] private GameObject revealEffect;
         
         void Start(){
@@ -22,6 +21,9 @@ public class KeyItemActivation : MonoBehaviour
                 }
                 else if(gameObject.CompareTag("SecretChest")){
                     RevealChest();
+                }
+                else if (gameObject.CompareTag("BridgeChain")){
+                    BreakChain();
                 }
             }
         }
@@ -56,10 +58,19 @@ public class KeyItemActivation : MonoBehaviour
                 StartCoroutine(WaitForRemovecamera());
             }
         }
+        void BreakChain(){
+            isActivated=false;
+            playerCam.AddTarget(transform);
+            StartCoroutine(WaitForRemovecamera());
+            gameObject.SetActive(false);
+        }
+        
 
         IEnumerator WaitForRemovecamera(){
             yield return new WaitForSeconds(2);
             playerCam.RemoveTarget(transform);
+           
+
         }
 
         

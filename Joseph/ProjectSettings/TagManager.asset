@@ -9,6 +9,7 @@ TagManager:
   - Spike
   - SecretChest
   - Weapon
+  - BridgeChain
   layers:
   - Default
   - TransparentFX
