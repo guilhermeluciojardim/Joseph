@@ -10,6 +10,7 @@ public class OpenChest : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private GameObject lid;
     [SerializeField] private GameObject content;
+    public HealthSystem healthSystem;
 
     void Start(){
         isClosed=true;
@@ -22,6 +23,8 @@ public class OpenChest : MonoBehaviour
         else{
             isEmpty=false;
         }
+        GameObject[] H = GameObject.FindGameObjectsWithTag("HealthSystem");
+        healthSystem = H[0].GetComponent<HealthSystem>();
     }
 
     void Update()
@@ -52,6 +55,9 @@ public class OpenChest : MonoBehaviour
                     if (cont.gameObject.CompareTag("Weapon")){
                         GameObject[] player =  GameObject.FindGameObjectsWithTag("Player");
                         player[0].gameObject.GetComponent<PlayerController>().GivePlayerHisWeapon();
+                    }
+                    else if (cont.gameObject.CompareTag("Heart")){
+                        healthSystem.maxHitPoint += 10f;
                     }
                 }
             }

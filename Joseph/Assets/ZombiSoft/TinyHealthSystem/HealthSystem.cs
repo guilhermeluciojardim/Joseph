@@ -193,7 +193,7 @@ public class HealthSystem : MonoBehaviour
 	{
 		// Player gets hurt. Do stuff.. play anim, sound..
 
-		PopupText.Instance.Popup("Ouch!", 1f, 1f); // Demo stuff!
+		// Demo stuff!
 
 		if (hitPoint < 1) // Health is Zero!!
 		{
@@ -210,7 +210,7 @@ public class HealthSystem : MonoBehaviour
 	IEnumerator PlayerDied()
 	{
 		// Player is dead. Do stuff.. play anim, sound..
-		PopupText.Instance.Popup("You have died!", 1f, 1f); // Demo stuff!
+		// Demo stuff!
 
 		yield return null;
 	}

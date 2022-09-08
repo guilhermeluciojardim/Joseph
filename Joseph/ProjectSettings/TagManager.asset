@@ -10,6 +10,14 @@ TagManager:
   - SecretChest
   - Weapon
   - BridgeChain
+  - ManaSprite
+  - HealthSprite
+  - TrapSpear
+  - FireGround
+  - FireBall
+  - Heart
+  - HealthSystem
+  - FlameThrower
   layers:
   - Default
   - TransparentFX

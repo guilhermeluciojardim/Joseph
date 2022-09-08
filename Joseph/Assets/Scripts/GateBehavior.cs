@@ -12,8 +12,8 @@ public class GateBehavior : MonoBehaviour
 
     void Start(){
         originalPos = 1f;
-        targetPos = 3f;
-        closeSpeed = 30f;
+        targetPos = 2f;
+        closeSpeed = 1f;
     }
     // Update is called once per frame
     void Update()
@@ -25,7 +25,7 @@ public class GateBehavior : MonoBehaviour
                 transform.Translate(Vector3.up * Time.deltaTime * closeSpeed);
             }
             else{
-                originalPos=0;
+                originalPos=1;
                 isFirstHalfOpen= true;
             } 
         }
@@ -36,12 +36,13 @@ public class GateBehavior : MonoBehaviour
                 transform.Translate(Vector3.up * Time.deltaTime * closeSpeed);
             }
             else {
-                originalPos=0;
+                originalPos=1;
                 isSecondHalfOpen=true;
             }
         }
         if (isFirstHalfOpen && isSecondHalfOpen){
             Destroy(gameObject);
         }
+
     }
 }
