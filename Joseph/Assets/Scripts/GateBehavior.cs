@@ -20,7 +20,7 @@ public class GateBehavior : MonoBehaviour
     {
         if (chain1.gameObject.activeSelf == false){
             originalPos += Time.deltaTime * closeSpeed;
-            Debug.Log(originalPos);
+            
             if ((originalPos < targetPos) && (!isFirstHalfOpen)){
                 transform.Translate(Vector3.up * Time.deltaTime * closeSpeed);
             }
@@ -31,7 +31,7 @@ public class GateBehavior : MonoBehaviour
         }
         if (chain2.gameObject.activeSelf == false){
             originalPos += Time.deltaTime * closeSpeed;
-            Debug.Log(originalPos);
+            
             if ((originalPos < targetPos) && (!isSecondHalfOpen)){
                 transform.Translate(Vector3.up * Time.deltaTime * closeSpeed);
             }

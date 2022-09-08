@@ -60,7 +60,6 @@ public class KeyItemActivation : MonoBehaviour
         }
         void BreakChain(){
             isActivated=false;
-            playerCam.AddTarget(transform);
             StartCoroutine(WaitForRemovecamera());
             gameObject.SetActive(false);
         }
@@ -69,7 +68,6 @@ public class KeyItemActivation : MonoBehaviour
         IEnumerator WaitForRemovecamera(){
             yield return new WaitForSeconds(2);
             playerCam.RemoveTarget(transform);
-           
 
         }
 
