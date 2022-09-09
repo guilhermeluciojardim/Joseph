@@ -19,8 +19,18 @@ public class PlayerHealth : MonoBehaviour
         if (coll.gameObject.CompareTag("Spike")){
             healthSystem.TakeDamage(5f);
         }
-        if (coll.gameObject.CompareTag("FlameThrower")){
-            healthSystem.TakeDamage(1f);
+       
+         if (coll.gameObject.CompareTag("Skull")){
+            healthSystem.TakeDamage(3f);
         }
+         if (coll.gameObject.CompareTag("TrapBlade")){
+            healthSystem.TakeDamage(10f);
+        }
+        
+   }
+   void OnParticleCollision(GameObject coll){
+    if (coll.gameObject.CompareTag("FlameThrower")){
+            healthSystem.TakeDamage(0.5f);
+    }
    }
 }

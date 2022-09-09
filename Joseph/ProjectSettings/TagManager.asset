@@ -18,6 +18,8 @@ TagManager:
   - Heart
   - HealthSystem
   - FlameThrower
+  - Skull
+  - TrapBlade
   layers:
   - Default
   - TransparentFX
