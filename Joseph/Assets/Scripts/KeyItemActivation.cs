@@ -7,6 +7,7 @@ public class KeyItemActivation : MonoBehaviour
 {
         public bool isActivated, isDoorClosed, isDoorClosing, isRevealing;
         float originalPositionY;
+        
         [SerializeField] private CameraMovement playerCam;
         [SerializeField] private GameObject revealEffect;
         
@@ -25,9 +26,18 @@ public class KeyItemActivation : MonoBehaviour
                 else if (gameObject.CompareTag("BridgeChain")){
                     BreakChain();
                 }
+                else if (gameObject.CompareTag("Arms")){
+                    BreakArms();
+                }
+                else if (gameObject.CompareTag("Body")){
+                    
+                }
             }
         }
 
+        void BreakArms(){
+
+        }
         void OpenDoor(){
             if (!isDoorClosing){
                 isDoorClosing=true;

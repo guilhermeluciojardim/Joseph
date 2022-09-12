@@ -21,6 +21,8 @@ TagManager:
   - Skull
   - TrapBlade
   - Sphere
+  - Arms
+  - Body
   layers:
   - Default
   - TransparentFX

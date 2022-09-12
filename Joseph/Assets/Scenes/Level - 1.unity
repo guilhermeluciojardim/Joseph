@@ -25897,7 +25897,7 @@ PrefabInstance:
     - target: {fileID: 23000012253912586, guid: e59189dc53391154ba8d5468f263e319,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e59189dc53391154ba8d5468f263e319, type: 3}
@@ -59737,7 +59737,7 @@ PrefabInstance:
     - target: {fileID: 23000012253912586, guid: e59189dc53391154ba8d5468f263e319,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e59189dc53391154ba8d5468f263e319, type: 3}
@@ -75100,6 +75100,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1187839526}
     m_Modifications:
+    - target: {fileID: 2044762338, guid: 35271f8b34258764183474ad53665996, type: 3}
+      propertyPath: playerCam
+      value: 
+      objectReference: {fileID: 1718150127}
     - target: {fileID: 61144950868946350, guid: 35271f8b34258764183474ad53665996,
         type: 3}
       propertyPath: m_RootOrder
@@ -75160,21 +75164,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mummy_Boss
       objectReference: {fileID: 0}
-    - target: {fileID: 61144950869176718, guid: 35271f8b34258764183474ad53665996,
+    - target: {fileID: 7687298481185218138, guid: 35271f8b34258764183474ad53665996,
         type: 3}
-      propertyPath: m_IsActive
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7333099320539268982, guid: 35271f8b34258764183474ad53665996,
+    - target: {fileID: 7687298481246334083, guid: 35271f8b34258764183474ad53665996,
         type: 3}
-      propertyPath: activatedObject
-      value: 
-      objectReference: {fileID: 101762571}
-    - target: {fileID: 7333099320599737775, guid: 35271f8b34258764183474ad53665996,
-        type: 3}
-      propertyPath: activatedObject
-      value: 
-      objectReference: {fileID: 101762571}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35271f8b34258764183474ad53665996, type: 3}
 --- !u!4 &1992716743 stripped
