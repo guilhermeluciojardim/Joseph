@@ -926,7 +926,7 @@ GameObject:
   - component: {fileID: 4860190980791512}
   - component: {fileID: 95301192991383472}
   m_Layer: 0
-  m_Name: SkeletonOutlaw_NoArmor - LOD0
+  m_Name: Skeleton Minions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

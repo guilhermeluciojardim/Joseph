@@ -20,6 +20,7 @@ TagManager:
   - FlameThrower
   - Skull
   - TrapBlade
+  - Sphere
   layers:
   - Default
   - TransparentFX
