@@ -7,9 +7,12 @@ public class KeyItemActivation : MonoBehaviour
 {
         public bool isActivated, isDoorClosed, isDoorClosing, isRevealing;
         float originalPositionY;
-        
+        [SerializeField] private GameObject Target;
         [SerializeField] private CameraMovement playerCam;
         [SerializeField] private GameObject revealEffect;
+        [SerializeField] private GameObject NewAltar;
+        public bool rightArm,leftArm;
+
         
         void Start(){
             originalPositionY = transform.position.y;
@@ -30,13 +33,28 @@ public class KeyItemActivation : MonoBehaviour
                     BreakArms();
                 }
                 else if (gameObject.CompareTag("Body")){
-                    
+                    BreakBody();
                 }
             }
         }
 
         void BreakArms(){
-
+            isActivated=false;
+            if (!leftArm){
+                leftArm=true;
+            }
+            else if (!rightArm){
+                rightArm=true;
+                NewAltar.gameObject.SetActive(true);
+                gameObject.SetActive(false);
+            }   
+        }
+        void BreakBody(){
+            isActivated=false;
+            GameObject obj = GameObject.Instantiate(revealEffect, transform.position,transform.rotation) as GameObject;
+            GameObject.Destroy(obj,2);
+            transform.position = Target.transform.position;
+            gameObject.SetActive(false);
         }
         void OpenDoor(){
             if (!isDoorClosing){

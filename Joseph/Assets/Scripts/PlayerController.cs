@@ -10,9 +10,10 @@ public class PlayerController : MonoBehaviour
 {
     //Variables
     [SerializeField] private float moveSpeed;
+    [SerializeField] private HealthSystem manaSystem;
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runSpeed;
-    public bool isDead,isJumping;
+    public bool isDead,isJumping, isAttacking;
     private int health, maxHealth;
     private Vector3 moveDirection;
     private Vector3 velocity;
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight;
 
     [SerializeField] private GameObject weapon;
+    [SerializeField] private GameObject magicEffect;
+    [SerializeField] private Transform magicOrigin;
     [SerializeField] private RuntimeAnimatorController newController;
     private MeshCollider weaponMesh;
 
@@ -30,6 +33,8 @@ public class PlayerController : MonoBehaviour
     private CharacterController controller;
     private Animator anim;
     private CameraMovement playerCam;
+
+    private float magicCost;
 
  
 
@@ -39,6 +44,7 @@ public class PlayerController : MonoBehaviour
         playerCam = GetComponentInChildren<CameraMovement>();
         Cursor.lockState = CursorLockMode.Locked;
         weaponMesh = weapon.GetComponent<MeshCollider>();
+        magicCost = 5f;
     }
     private void Update(){
         Move();
@@ -113,9 +119,19 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(WaitForNextAttack());
             }
             else if (Input.GetKeyDown(KeyCode.Mouse1)){
-                    weaponMesh.enabled=true;
-                    anim.SetBool("Attack2",true);
-                    StartCoroutine(WaitForNextAttack());
+                    if (!isAttacking){
+                        isAttacking=true;
+                        weaponMesh.enabled=true;
+                        anim.SetBool("Attack2",true);
+                        if (manaSystem.manaPoint>=magicCost){
+                            manaSystem.UseMana(magicCost);
+                            GameObject magic = Instantiate(magicEffect,magicOrigin.position, transform.rotation);
+                            GameObject.Destroy(magic,3f);
+                        }
+                        StartCoroutine(WaitForNextAttack());
+                    }
+                   
+                    
             }
             
         }
@@ -125,6 +141,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("Attack1",false);
         anim.SetBool("Attack2",false);
         weaponMesh.enabled=false;
+        isAttacking=false;
     }
 
 
