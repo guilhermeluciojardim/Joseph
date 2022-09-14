@@ -8,7 +8,7 @@
 ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/iuricode/README-template?style=for-the-badge)
 ![Bitbucket open pull requests](https://img.shields.io/bitbucket/pr-raw/iuricode/README-template?style=for-the-badge)
 
-> In this project, I'll be creating a puzzle game
+> In this project, I'll be creating a action RPG game where Joseph is cast out by his brothers and falls into a pit filled with traps and monsters. 
 
 # GamePlay video
 
