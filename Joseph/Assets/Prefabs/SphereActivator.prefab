@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 7687298481121098983}
   - component: {fileID: 7687298481121098982}
   - component: {fileID: 7333099320682469141}
-  m_Layer: 6
+  m_Layer: 11
   m_Name: SphereActivator
-  m_TagString: Untagged
+  m_TagString: Sphere
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,3 +114,4 @@ MonoBehaviour:
     type: 3}
   sparkEffect: {fileID: 1000011945391522, guid: 78b71003e8b357d4bbf89c8b5e5e4f0e,
     type: 3}
+  activatedObject: {fileID: 0}

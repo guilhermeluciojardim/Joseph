@@ -4625,7 +4625,7 @@ GameObject:
   - component: {fileID: 199528594520767084}
   m_Layer: 0
   m_Name: EarthShatter
-  m_TagString: Untagged
+  m_TagString: Magic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8282,9 +8282,9 @@ ParticleSystem:
     serializedVersion: 4
     type: 1
     collisionMode: 0
-    colliderForce: 0
+    colliderForce: 1
     multiplyColliderForceByParticleSize: 0
-    multiplyColliderForceByParticleSpeed: 0
+    multiplyColliderForceByParticleSpeed: 1
     multiplyColliderForceByCollisionAngle: 0
     m_Planes:
     - {fileID: 0}
@@ -8457,12 +8457,12 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 128
+      m_Bits: 2176
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
-    collidesWithDynamic: 0
+    collisionMessages: 1
+    collidesWithDynamic: 1
     interiorCollisions: 1
   TriggerModule:
     enabled: 0

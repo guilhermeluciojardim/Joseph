@@ -23,6 +23,7 @@ TagManager:
   - Sphere
   - Arms
   - Body
+  - Magic
   layers:
   - Default
   - TransparentFX

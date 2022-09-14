@@ -36,4 +36,12 @@ public class SphereActivator : MonoBehaviour
         }
     }
    }
+   void OnParticleCollision(GameObject coll){
+        if (coll.gameObject.CompareTag("Magic")){
+            GameObject explosion = Instantiate(explosionEffect,transform.position,transform.rotation) as GameObject;
+            GameObject.Destroy(explosion,2f);
+            activatedObject.gameObject.GetComponent<KeyItemActivation>().isActivated = true;
+            Destroy(gameObject);
+        }
+   }
 }

@@ -14893,6 +14893,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7687298481121098976, guid: 4f74c98b543abb744aa033c53d4ae9a1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Sphere
+      objectReference: {fileID: 0}
     - target: {fileID: 7687298481121098977, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -14906,12 +14911,12 @@ PrefabInstance:
     - target: {fileID: 7687298481121098977, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.589921
+      value: -14.28
       objectReference: {fileID: 0}
     - target: {fileID: 7687298481121098977, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.7
+      value: 23.700003
       objectReference: {fileID: 0}
     - target: {fileID: 7687298481121098977, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
@@ -30716,7 +30721,7 @@ MonoBehaviour:
   isRevealing: 0
   Target: {fileID: 0}
   playerCam: {fileID: 1718150127}
-  revealEffect: {fileID: 1722726733478836, guid: c1c88308ebb5d2541a282905b854ee4c,
+  revealEffect: {fileID: 1329845292236604, guid: 9bba9cf244c53c5439505dfc96fdd11c,
     type: 3}
   NewAltar: {fileID: 0}
   rightArm: 0
@@ -31876,7 +31881,7 @@ PrefabInstance:
     - target: {fileID: 7687298481121098976, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7687298481121098976, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
@@ -58113,6 +58118,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7687298481121098976, guid: 4f74c98b543abb744aa033c53d4ae9a1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Sphere
+      objectReference: {fileID: 0}
     - target: {fileID: 7687298481121098977, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -58126,7 +58136,7 @@ PrefabInstance:
     - target: {fileID: 7687298481121098977, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.589921
+      value: -14.258
       objectReference: {fileID: 0}
     - target: {fileID: 7687298481121098977, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
@@ -71565,6 +71575,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7687298481121098976, guid: 4f74c98b543abb744aa033c53d4ae9a1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Sphere
+      objectReference: {fileID: 0}
     - target: {fileID: 7687298481121098977, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -71578,7 +71593,7 @@ PrefabInstance:
     - target: {fileID: 7687298481121098977, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.589921
+      value: -14.258
       objectReference: {fileID: 0}
     - target: {fileID: 7687298481121098977, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
@@ -76088,7 +76103,7 @@ PrefabInstance:
     - target: {fileID: 7687298481185218138, guid: 35271f8b34258764183474ad53665996,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7687298481185218138, guid: 35271f8b34258764183474ad53665996,
         type: 3}
@@ -76108,7 +76123,7 @@ PrefabInstance:
     - target: {fileID: 7687298481246334083, guid: 35271f8b34258764183474ad53665996,
         type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7687298481246334083, guid: 35271f8b34258764183474ad53665996,
         type: 3}
@@ -81271,6 +81286,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sphere
       objectReference: {fileID: 0}
+    - target: {fileID: 7687298481121098976, guid: 4f74c98b543abb744aa033c53d4ae9a1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Sphere
+      objectReference: {fileID: 0}
     - target: {fileID: 7687298481121098977, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
       propertyPath: m_RootOrder
@@ -81284,12 +81304,12 @@ PrefabInstance:
     - target: {fileID: 7687298481121098977, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.589921
+      value: -14.28
       objectReference: {fileID: 0}
     - target: {fileID: 7687298481121098977, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.699999
+      value: 23.7
       objectReference: {fileID: 0}
     - target: {fileID: 7687298481121098977, guid: 4f74c98b543abb744aa033c53d4ae9a1,
         type: 3}
