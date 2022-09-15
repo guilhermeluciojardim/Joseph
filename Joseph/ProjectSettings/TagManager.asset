@@ -24,6 +24,7 @@ TagManager:
   - Arms
   - Body
   - Magic
+  - Head
   layers:
   - Default
   - TransparentFX

@@ -36,7 +36,7 @@ public class ActivateBoss : MonoBehaviour
         yield return new WaitForSeconds(3f);
         Boss.gameObject.SetActive(true);
         mainCamera.AddTarget(Boss.transform);
-        mainCamera.offset.y = 15;
+        mainCamera.offset.y = 10;
         mainCamera.offset.z = 5;
         SpawnPoint1.GetComponent<SpawnMinions>().isActivated=true;
         SpawnPoint2.GetComponent<SpawnMinions>().isActivated=true;

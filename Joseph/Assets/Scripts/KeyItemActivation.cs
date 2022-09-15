@@ -8,6 +8,7 @@ public class KeyItemActivation : MonoBehaviour
         public bool isActivated, isDoorClosed, isDoorClosing, isRevealing;
         float originalPositionY;
         [SerializeField] private GameObject Target;
+        [SerializeField] private GameObject Boss;
         [SerializeField] private CameraMovement playerCam;
         [SerializeField] private GameObject revealEffect;
         [SerializeField] private GameObject NewAltar;
@@ -35,6 +36,9 @@ public class KeyItemActivation : MonoBehaviour
                 else if (gameObject.CompareTag("Body")){
                     BreakBody();
                 }
+                else if (gameObject.CompareTag("Head")){
+                    BreakHead();
+                }
             }
         }
 
@@ -53,8 +57,18 @@ public class KeyItemActivation : MonoBehaviour
             isActivated=false;
             GameObject obj = GameObject.Instantiate(revealEffect, transform.position,transform.rotation) as GameObject;
             GameObject.Destroy(obj,2);
-            transform.position = Target.transform.position;
+            Boss.transform.position = Target.transform.position;
+            NewAltar.gameObject.SetActive(true);
             gameObject.SetActive(false);
+        }
+
+        void BreakHead(){
+            isActivated=false;
+            GameObject obj = GameObject.Instantiate(revealEffect, transform.position,transform.rotation) as GameObject;
+            GameObject.Destroy(obj,6);
+            Target.SetActive(false);
+
+            //Player wins the game
         }
         void OpenDoor(){
             if (!isDoorClosing){

@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour
     void Attack(){
         if (weapon.activeSelf == true){
             if (Input.GetKeyDown(KeyCode.Mouse0)){
-                    weaponMesh.enabled=true;
+                    StartCoroutine(WaitForMesh());
                     anim.SetBool("Attack1",true);
                     StartCoroutine(WaitForNextAttack());
             }
@@ -135,6 +135,10 @@ public class PlayerController : MonoBehaviour
             }
             
         }
+    }
+     IEnumerator WaitForMesh(){
+        yield return new WaitForSeconds(0.2f);
+        weaponMesh.enabled=true;
     }
     IEnumerator WaitForNextAttack(){
         yield return new WaitForSeconds(0.5f);
