@@ -66,10 +66,24 @@ public class KeyItemActivation : MonoBehaviour
             isActivated=false;
             GameObject obj = GameObject.Instantiate(revealEffect, transform.position,transform.rotation) as GameObject;
             GameObject.Destroy(obj,6);
-            Target.SetActive(false);
 
-            //Player wins the game
+            playerCam.AddTarget(NewAltar.transform);
+            GameObject obj2 = GameObject.Instantiate(revealEffect, NewAltar.transform.position, NewAltar.transform.rotation) as GameObject;
+            GameObject.Destroy(obj2,2);
+            StartCoroutine(WaitForExitOpen());
+
+
         }
+        IEnumerator WaitForExitOpen(){
+            yield return new WaitForSeconds(2);
+            playerCam.RemoveTarget(NewAltar.transform);
+            NewAltar.SetActive(false);
+            playerCam.RemoveTarget(Boss.transform);
+            playerCam.offset.y = 5;
+            playerCam.offset.z = 3;
+            Destroy(Boss);
+        }
+
         void OpenDoor(){
             if (!isDoorClosing){
                 isDoorClosing=true;

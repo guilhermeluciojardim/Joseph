@@ -121,12 +121,11 @@ public class PlayerController : MonoBehaviour
             else if (Input.GetKeyDown(KeyCode.Mouse1)){
                     if (!isAttacking){
                         isAttacking=true;
-                        weaponMesh.enabled=true;
+                        StartCoroutine(WaitForMesh());
                         anim.SetBool("Attack2",true);
                         if (manaSystem.manaPoint>=magicCost){
                             manaSystem.UseMana(magicCost);
-                            GameObject magic = Instantiate(magicEffect,magicOrigin.position, transform.rotation);
-                            GameObject.Destroy(magic,3f);
+                            StartCoroutine(WaitForMagic());
                         }
                         StartCoroutine(WaitForNextAttack());
                     }
@@ -135,6 +134,11 @@ public class PlayerController : MonoBehaviour
             }
             
         }
+    }
+     IEnumerator WaitForMagic(){
+        yield return new WaitForSeconds(0.5f);
+        GameObject magic = Instantiate(magicEffect,magicOrigin.position, transform.rotation);
+        GameObject.Destroy(magic,3f);
     }
      IEnumerator WaitForMesh(){
         yield return new WaitForSeconds(0.2f);
