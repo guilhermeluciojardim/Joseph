@@ -30,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
    }
    void OnParticleCollision(GameObject coll){
     if (coll.gameObject.CompareTag("FlameThrower")){
-            healthSystem.TakeDamage(0.5f);
+            healthSystem.TakeDamage(1f);
     }
    }
 }

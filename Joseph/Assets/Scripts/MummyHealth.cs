@@ -6,6 +6,8 @@ public class MummyHealth : MonoBehaviour
 {
     [SerializeField] private GameObject deathEffect;
     [SerializeField] private GameObject damageEffect;
+    [SerializeField] private GameObject HealthSpawnObj;
+    [SerializeField] private GameObject ManaSpawnObj;
    public float health;
    void Start(){
         health=100;
@@ -30,6 +32,13 @@ public class MummyHealth : MonoBehaviour
    void CreateDeathEffect(){
     GameObject exp = Instantiate(deathEffect,transform.position,transform.rotation) as GameObject; 
     GameObject.Destroy(exp,2f);
+    float dice = Random.Range(1,10);
+            if (dice<5){
+                GameObject health = Instantiate(HealthSpawnObj,transform.position + Vector3.up, transform.rotation) as GameObject; 
+            }
+            else{
+                GameObject mana = Instantiate(ManaSpawnObj,transform.position + Vector3.up,transform.rotation) as GameObject; 
+            }
    }
 
    void CreateDamageEffect(){
