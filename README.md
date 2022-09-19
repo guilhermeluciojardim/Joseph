@@ -16,12 +16,12 @@
 
 ### Next adjusts and improvements
 
-- [ ] Set cameras around the player
-- [ ] Draw levels
-- [ ] Create player controller
-- [ ] Create AI and Enemy controller
-- [ ] Create obstacles 
-- [ ] Create objects behaviours
+- [x] Set cameras around the player
+- [x] Draw level 1
+- [x] Create player controller
+- [x] Create AI and Enemy controller
+- [x] Create obstacles and traps
+- [x] Create health and mana system
 - [ ] Create Game Menu
 - [ ] Build Project
 
