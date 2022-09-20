@@ -11,10 +11,21 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class HealthSystem : MonoBehaviour
 {
 	public static HealthSystem Instance;
+
+	public PlayerController playerController;
+
+	public GameObject player;
+
+	private Animator anim;
+	public TextMeshProUGUI gameoverText;
+	public Button restartButton;
+	public Button exitButton;
 
 	public Image currentHealthBar;
 	public Image currentHealthGlobe;
@@ -197,6 +208,7 @@ public class HealthSystem : MonoBehaviour
 
 		if (hitPoint < 1) // Health is Zero!!
 		{
+
 			yield return StartCoroutine(PlayerDied()); // Hero is Dead
 		}
 
@@ -209,8 +221,13 @@ public class HealthSystem : MonoBehaviour
 	//==============================================================
 	IEnumerator PlayerDied()
 	{
-		// Player is dead. Do stuff.. play anim, sound..
-		// Demo stuff!
+		Cursor.lockState = CursorLockMode.None;
+		anim = player.GetComponent<Animator>();
+		anim.SetBool("isDead",true);
+		playerController.enabled = false;
+		gameoverText.gameObject.SetActive(true);
+		restartButton.gameObject.SetActive(true);
+		exitButton.gameObject.SetActive(true);
 
 		yield return null;
 	}
